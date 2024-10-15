@@ -1,0 +1,3 @@
+rootProject.name = 'event-management-system'
+include 'event-service'
+

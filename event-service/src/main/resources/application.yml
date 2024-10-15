@@ -1,0 +1,13 @@
+spring:
+  data:
+    url: jdbc:postgresql://localhost:5432/eventservice
+    username: root
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+jwt:
+  token:
+    secret: secret
+    expired: 86400000
