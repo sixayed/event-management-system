@@ -1,5 +1,5 @@
 spring:
-  data:
+  datasource:
     url: jdbc:postgresql://localhost:5432/eventservice
     username: root
     password: 123

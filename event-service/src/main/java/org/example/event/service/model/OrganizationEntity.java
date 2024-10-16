@@ -23,4 +23,7 @@ public class OrganizationEntity {
 
     @OneToMany(mappedBy = "organization")
     private List<EventEntity> events;
+
+    @OneToMany(mappedBy = "organization")
+    private List<UserEntity> users;
 }

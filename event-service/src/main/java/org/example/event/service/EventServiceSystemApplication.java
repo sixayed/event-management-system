@@ -9,5 +9,4 @@ public class EventServiceSystemApplication {
     public static void main(String[] args) {
         SpringApplication.run(EventServiceSystemApplication.class, args);
     }
-
 }

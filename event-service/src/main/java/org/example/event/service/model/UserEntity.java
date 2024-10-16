@@ -28,4 +28,8 @@ public class UserEntity {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "organization_id")
+    private OrganizationEntity organization;
 }
