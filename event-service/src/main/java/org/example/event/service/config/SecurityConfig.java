@@ -24,6 +24,8 @@ public class SecurityConfig {
 
     private static final String EVENTS_ENDPOINT = "/api/events/**";
     private static final String ACTUATOR_ENDPOINT = "/actuator/**";
+    private static final String SWAGGER_ENDPOINT = "/swagger-ui/**";
+    private static final String API_DOCS_ENDPOINT = "/v3/api-docs/**";
 
     private final UserDetailsService userDetailsService;
     private final JwtTokenFilter jwtTokenFilter;
@@ -48,6 +50,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.GET, EVENTS_ENDPOINT).permitAll()
                                 .requestMatchers(HttpMethod.POST, EVENTS_ENDPOINT).hasRole("ORGANIZATION")
                                 .requestMatchers(HttpMethod.PATCH, EVENTS_ENDPOINT).hasRole("ORGANIZATION")
+                                .requestMatchers(SWAGGER_ENDPOINT, API_DOCS_ENDPOINT).permitAll()
                                 .anyRequest().hasRole("ADMIN")
                 )
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
