@@ -13,8 +13,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface UserMapper {
+public interface AuthMapper {
+
     LoginDto registerToLoginDto(RegisterDto registerDto);
+
     @Mapping(target = "authorities", expression = "java(mapToGrantedAuthorities(userEntity.getRole()))")
     User entityToUserDetails(UserEntity userEntity);
 

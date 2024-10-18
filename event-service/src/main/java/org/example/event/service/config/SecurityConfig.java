@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private static final String EVENTS_ENDPOINT = "/api/events/**";
-    private static final String USERS_ENDPOINT = "/api/users/**";
+    private static final String USERS_ENDPOINT = "/api/auth/**";
     private static final String ACTUATOR_ENDPOINT = "/actuator/**";
     private static final String SWAGGER_ENDPOINT = "/swagger-ui/**";
     private static final String API_DOCS_ENDPOINT = "/v3/api-docs/**";

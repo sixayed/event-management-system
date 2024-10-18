@@ -3,7 +3,7 @@ package org.example.event.service.security.service;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.event.service.dto.user.UserMapper;
+import org.example.event.service.dto.user.AuthMapper;
 import org.example.event.service.model.UserEntity;
 import org.example.event.service.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
+    private final AuthMapper authMapper;
 
     @Override
     public UserDetails loadUserByUsername(@NonNull String username) {
         UserEntity user = userRepository.findByLogin(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
-        return userMapper.entityToUserDetails(user);
+        return authMapper.entityToUserDetails(user);
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/events")
+@RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class EventController {
 
