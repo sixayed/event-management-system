@@ -14,9 +14,9 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository<EventEntity, Long> {
     @Query("SELECT e FROM EventEntity e WHERE "
-            + "(:name IS NULL OR LOWER(e.name) LIKE LOWER(CONCAT('%', :name, '%'))) "
-            + "AND (:startDate IS NULL OR e.startDate >= :startDate) "
-            + "AND (:endDate IS NULL OR e.endDate <= :endDate) "
+            + "(LOWER(e.name) LIKE LOWER(CONCAT('%', :name, '%')) OR :name IS NULL) "
+            + "AND (cast(:startDate as timestamp) IS NULL OR e.startDate >= :startDate) "
+            + "AND (cast(:endDate as timestamp) IS NULL OR e.endDate <= :endDate) "
             + "AND (:status IS NULL OR e.status = :status) ")
     List<EventEntity> getEvents(
             @Param("name") String name,
